@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import AboutPage from './AboutPage';
+import ServicesPage from './ServicesPage';
 import { Shield, Lock, Search, AlertTriangle, CheckCircle, Mail, FileText, HelpCircle, Menu, X } from 'lucide-react';
 import { Button } from './components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './components/ui/card';
@@ -35,7 +37,7 @@ const Header = () => {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" size="sm">Get Started</Button>
+            <Button variant="outline" size="sm" onClick={() => window.location.href = 'http://secure.pciinspect.com/'}>Get Started</Button>
             <Button size="sm">Contact Sales</Button>
           </div>
 
@@ -55,7 +57,7 @@ const Header = () => {
               <Link to="/about" className="text-gray-700 hover:text-primary transition-colors">About</Link>
               <Link to="/support" className="text-gray-700 hover:text-primary transition-colors">Support</Link>
               <div className="flex flex-col space-y-2 pt-4">
-                <Button variant="outline" size="sm">Get Started</Button>
+                <Button variant="outline" size="sm" onClick={() => window.location.href = 'http://secure.pciinspect.com/'}>Get Started</Button>
                 <Button size="sm">Contact Sales</Button>
               </div>
             </nav>
@@ -129,7 +131,7 @@ const Homepage = () => {
             <div className="slide-in-left">
               <div className="mb-6">
                 <Badge className="compliance-highlight mb-4">
-                  PCI DSS v4.0.1 Compliant
+                  Be PCI DSS v4.0.1 Compliant
                 </Badge>
               </div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
@@ -140,7 +142,7 @@ const Homepage = () => {
                 for e-commerce merchants and payment gateway providers.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" variant="secondary" className="text-primary">
+                <Button size="lg" variant="secondary" className="text-primary" onClick={() => window.location.href = 'http://secure.pciinspect.com/'}>
                   Start Free Scan
                 </Button>
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
@@ -334,7 +336,7 @@ const Homepage = () => {
             Start protecting your e-commerce platform today with our comprehensive security solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="text-primary">
+            <Button size="lg" variant="secondary" className="text-primary" onClick={() => window.location.href = 'http://secure.pciinspect.com/'}>
               Start Free Security Scan
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
@@ -570,9 +572,10 @@ const App = () => {
         <main>
           <Routes>
             <Route path="/" element={<Homepage />} />
-            <Route path="/support" element={<SupportPage />} />
-            <Route path="/services" element={<div className="min-h-screen flex items-center justify-center"><h1 className="text-4xl font-bold">Services Page Coming Soon</h1></div>} />
-            <Route path="/about" element={<div className="min-h-screen flex items-center justify-center"><h1 className="text-4xl font-bold">About Page Coming Soon</h1></div>} />
+            <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/support" element={<SupportPage />} />
+
           </Routes>
         </main>
         <Footer />
